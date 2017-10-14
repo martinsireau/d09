@@ -18,39 +18,46 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
     
     var myImage : UIImage?
     
-    var theTitle : String?
-    var theContent : String?
-    var theImage : UIImage?
+//    var theTitle : String?
+//    var theContent : String?
+//    var theImage : UIImage?
+    
+    var theArticle : Article?
+    
+    var article1 : Article?
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet weak var myTextView: UITextView!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        myTextField.text = theTitle
-        myTextView.text = theContent
-        myImageView.image = theImage
-    }
-    
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerController.delegate = self
-        
+//        myTextField.text = theTitle
+//        myTextView.text = theContent
+//        myImageView.image = theImage
+        myTextField.text = theArticle?.title
+        myTextView.text = theArticle?.content
+        if let myImageData = theArticle?.image{
+            myImageView.image = UIImage(data: myImageData as Data)
+        }
         articleManager = ArticleManager(managedObjectContext: self.context)
+        if theArticle != nil{
+            article1 = theArticle
+        } else {
+            article1 = articleManager?.newArticle()
+        }
     }
 
     @IBAction func saveButton(_ sender: Any) {
-        if let article1 = articleManager?.newArticle(){
-            article1.title = myTextField.text
-            article1.content = myTextView.text
-            article1.creationDate = NSDate()
-            article1.modificationDate = NSDate()
-            if let theImage = myImage {
-                article1.image = UIImagePNGRepresentation(theImage) as NSData?
-            }
-            article1.langage = Locale.preferredLanguages[0]
+        article1?.title = myTextField.text
+        article1?.content = myTextView.text
+        article1?.creationDate = NSDate()
+        article1?.modificationDate = NSDate()
+        if let theImage = myImage {
+            article1?.image = UIImagePNGRepresentation(theImage) as NSData?
         }
-        
+        article1?.langage = Locale.preferredLanguages[0]
         articleManager?.save()
         
         self.navigationController?.popViewController(animated: true)
