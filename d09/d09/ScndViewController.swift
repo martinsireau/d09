@@ -30,6 +30,9 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let allArticles = articleManager?.getAllArticles(){
             arr = allArticles
         }
+        myTableVC.rowHeight  = UITableViewAutomaticDimension
+        myTableVC.estimatedRowHeight = 140
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

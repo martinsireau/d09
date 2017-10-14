@@ -186,10 +186,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-mb-s0e">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
                                                 <state key="normal" title="Take Picture"/>
+                                                <connections>
+                                                    <action selector="takePic:" destination="GpU-DZ-tiU" eventType="touchUpInside" id="Zqn-F4-TgB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCl-Iu-M3i">
                                                 <rect key="frame" x="144" y="0.0" width="144" height="30"/>
                                                 <state key="normal" title="Choose Picture"/>
+                                                <connections>
+                                                    <action selector="ChoosePic:" destination="GpU-DZ-tiU" eventType="touchUpInside" id="Wbb-Ep-JEj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
