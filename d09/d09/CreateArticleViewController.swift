@@ -17,9 +17,20 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
     let pickerController = UIImagePickerController()
     
     var myImage : UIImage?
-
+    
+    var theTitle : String?
+    var theContent : String?
+    var theImage : UIImage?
+    
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet weak var myTextView: UITextView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        myTextField.text = theTitle
+        myTextView.text = theContent
+        myImageView.image = theImage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +76,7 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }
 

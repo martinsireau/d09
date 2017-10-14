@@ -46,8 +46,30 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.contentLabel.text = arr[indexPath.row].content
         cell.creationLabel.text = String(describing: arr[indexPath.row].creationDate!)
         cell.modificationLabel.text =  String(describing: arr[indexPath.row].modificationDate!)
+        
+        if let myImageData = arr[indexPath.row].image{
+            cell.myImageView.image = UIImage(data: myImageData as Data)
+        }
+        
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateArticleViewController") as! CreateArticleViewController
+//        print(arr[indexPath.row].title)
+        if let title = arr[indexPath.row].title{
+            myVC.theTitle = title
+        }
+        if let content = arr[indexPath.row].content{
+            myVC.theContent = content
+        }
+        if let myImageData = arr[indexPath.row].image{
+            myVC.theImage = UIImage(data: myImageData as Data)
+        }
+//        myVC.myTextField.text = arr[indexPath.row].modificationDate
+        
+        self.navigationController?.pushViewController(myVC, animated: true)
     }
     
 }
