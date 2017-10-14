@@ -15,6 +15,7 @@
 		A32DB5B81F912B9B0097A324 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32DB5B61F912B9B0097A324 /* Main.storyboard */; };
 		A32DB5BA1F912B9B0097A324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32DB5B91F912B9B0097A324 /* Assets.xcassets */; };
 		A32DB5BD1F912B9B0097A324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32DB5BB1F912B9B0097A324 /* LaunchScreen.storyboard */; };
+		A39E969D1F920D3000B3F67E /* CreateArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E969C1F920D3000B3F67E /* CreateArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A32DB5B91F912B9B0097A324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A32DB5BC1F912B9B0097A324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A32DB5BE1F912B9B0097A324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A39E969C1F920D3000B3F67E /* CreateArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				A32DB5B21F912B9B0097A324 /* AppDelegate.swift */,
 				A32DB5B41F912B9B0097A324 /* ViewController.swift */,
 				A31ADE6B1F91EF2200CD8F8B /* ScndViewController.swift */,
+				A39E969C1F920D3000B3F67E /* CreateArticleViewController.swift */,
 				A31ADE6D1F91F38100CD8F8B /* ArticleTableViewCell.swift */,
 				A32DB5B61F912B9B0097A324 /* Main.storyboard */,
 				A32DB5B91F912B9B0097A324 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A31ADE6E1F91F38100CD8F8B /* ArticleTableViewCell.swift in Sources */,
+				A39E969D1F920D3000B3F67E /* CreateArticleViewController.swift in Sources */,
 				A32DB5B51F912B9B0097A324 /* ViewController.swift in Sources */,
 				A31ADE6C1F91EF2200CD8F8B /* ScndViewController.swift in Sources */,
 				A32DB5B31F912B9B0097A324 /* AppDelegate.swift in Sources */,

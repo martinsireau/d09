@@ -152,7 +152,7 @@
         <!--Create Article-->
         <scene sceneID="9w3-9A-B3K">
             <objects>
-                <viewController title="Create Article" id="GpU-DZ-tiU" sceneMemberID="viewController">
+                <viewController title="Create Article" id="GpU-DZ-tiU" customClass="CreateArticleViewController" customModule="d09" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KH1-yq-2jv"/>
                         <viewControllerLayoutGuide type="bottom" id="rui-oU-g6t"/>
@@ -214,10 +214,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Articles" id="zZp-VW-6nt">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="kJI-QK-dTO"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="mU5-mt-XiK"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="kJI-QK-dTO">
+                            <connections>
+                                <action selector="cancelButt:" destination="GpU-DZ-tiU" id="aFU-or-Uy4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="mU5-mt-XiK">
+                            <connections>
+                                <action selector="saveButton:" destination="GpU-DZ-tiU" id="1zE-uQ-JGo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="myTextField" destination="V1l-4b-GPL" id="GgG-jB-osp"/>
+                        <outlet property="myTextView" destination="bYX-IW-cDu" id="y2i-bx-pcL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOZ-Rd-FDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
