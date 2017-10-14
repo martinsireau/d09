@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
     
     @IBAction func authButton(_ sender: Any) {
         if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {

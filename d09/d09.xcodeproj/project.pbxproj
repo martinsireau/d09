@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C98A5BE82D9D75F917DC6C8 /* Pods_d09.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7010C70F31FF2B555C1DBB3F /* Pods_d09.framework */; };
+		A31ADE6C1F91EF2200CD8F8B /* ScndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31ADE6B1F91EF2200CD8F8B /* ScndViewController.swift */; };
 		A32DB5B31F912B9B0097A324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DB5B21F912B9B0097A324 /* AppDelegate.swift */; };
 		A32DB5B51F912B9B0097A324 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DB5B41F912B9B0097A324 /* ViewController.swift */; };
 		A32DB5B81F912B9B0097A324 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32DB5B61F912B9B0097A324 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		4CD7C756341A3C9BC62E3A87 /* Pods-d09.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-d09.release.xcconfig"; path = "Pods/Target Support Files/Pods-d09/Pods-d09.release.xcconfig"; sourceTree = "<group>"; };
 		52146A7147BA40DAD7D97226 /* Pods-d09.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-d09.debug.xcconfig"; path = "Pods/Target Support Files/Pods-d09/Pods-d09.debug.xcconfig"; sourceTree = "<group>"; };
 		7010C70F31FF2B555C1DBB3F /* Pods_d09.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_d09.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31ADE6B1F91EF2200CD8F8B /* ScndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScndViewController.swift; sourceTree = "<group>"; };
 		A32DB5AF1F912B9B0097A324 /* d09.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = d09.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32DB5B21F912B9B0097A324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A32DB5B41F912B9B0097A324 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				A32DB5B21F912B9B0097A324 /* AppDelegate.swift */,
 				A32DB5B41F912B9B0097A324 /* ViewController.swift */,
+				A31ADE6B1F91EF2200CD8F8B /* ScndViewController.swift */,
 				A32DB5B61F912B9B0097A324 /* Main.storyboard */,
 				A32DB5B91F912B9B0097A324 /* Assets.xcassets */,
 				A32DB5BB1F912B9B0097A324 /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32DB5B51F912B9B0097A324 /* ViewController.swift in Sources */,
+				A31ADE6C1F91EF2200CD8F8B /* ScndViewController.swift in Sources */,
 				A32DB5B31F912B9B0097A324 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +388,7 @@
 				A32DB5C31F912B9B0097A324 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
