@@ -9,8 +9,8 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8CFE1558-769F-4AA5-B741-095B71AA7535",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "44EED710D4809EFFE3726CFCEECBEB1335F5919B" : "D09\/",
-    "97F5AA05EA23E5BBE30008AA4497D2FF45B7D394" : "..\/..\/..\/..\/tmp\/d08"
+    "44EED710D4809EFFE3726CFCEECBEB1335F5919B" : "d09\/",
+    "97F5AA05EA23E5BBE30008AA4497D2FF45B7D394" : "d08\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "d09",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
