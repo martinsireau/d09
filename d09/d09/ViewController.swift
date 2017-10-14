@@ -17,37 +17,50 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        eval()
+    }
+  
+    func eval(){
+        if myContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil){
+            myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: " ", reply: { (success, error) in
+                if success {
+                    self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
+                }
+                else {
+                    print(error!)
+                }
+            })
+        }
     }
     
     @IBAction func authButton(_ sender: Any) {
-        if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: " ") { success, evaluateError in
-                if success {
-                    self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
-                    print("Succexx")
-                } else {
-                    print("Error1")
-                    self.keyboardAuth()
-                }
-            }
-        } else {
-            print("No Touch ID")
-            self.keyboardAuth()
-        }
-
+//        if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+//            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: " ") { success, evaluateError in
+//                if success {
+//                    self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
+//                    print("Succexx")
+//                } else {
+//                    print("Error1")
+//                    self.keyboardAuth()
+//                }
+//            }
+//        } else {
+//            print("No Touch ID")
+//            self.keyboardAuth()
+//        }
+        eval()
     }
-    
-    func keyboardAuth(){
-        myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: " ") { success, evaluateError in
-            if success {
-                self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
-                print("Success")
-            } else {
-                print("Error2")
-            }
-        }
-    }
+//
+//    func keyboardAuth(){
+//        myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: " ") { success, evaluateError in
+//            if success {
+//                self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
+//                print("Success")
+//            } else {
+//                print("Error2")
+//            }
+//        }
+//    }
     
 }
 

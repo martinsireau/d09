@@ -24,6 +24,7 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
     
     var theArticle : Article?
     
+    var isJustCreate = true
     var article1 : Article?
     
     @IBOutlet weak var myImageView: UIImageView!
@@ -52,7 +53,9 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
     @IBAction func saveButton(_ sender: Any) {
         article1?.title = myTextField.text
         article1?.content = myTextView.text
-        article1?.creationDate = NSDate()
+        if isJustCreate{
+            article1?.creationDate = NSDate()
+        }
         article1?.modificationDate = NSDate()
         if let theImage = myImage {
             article1?.image = UIImagePNGRepresentation(theImage) as NSData?

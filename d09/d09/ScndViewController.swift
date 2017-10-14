@@ -49,11 +49,15 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.contentLabel.text = arr[indexPath.row].content
         
         if let myCreationDate = arr[indexPath.row].creationDate {
-            cell.creationLabel.text = String(describing: myCreationDate)
+            cell.creationLabel.text = ("Creation : \(String(describing: myCreationDate.toString()))")
         }
         
         if let myModifDate = arr[indexPath.row].modificationDate {
-            cell.creationLabel.text = String(describing: myModifDate)
+            let modifTxt = arr[indexPath.row].modificationDate
+            let crea = arr[indexPath.row].creationDate
+            if crea?.toString() != modifTxt?.toString() {
+                cell.modificationLabel.text = ("Modification : \(String(describing: myModifDate.toString()))")
+            }
         }
         
         if let myImageData = arr[indexPath.row].image{
@@ -68,6 +72,7 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         let myVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateArticleViewController") as! CreateArticleViewController
 
         myVC.theArticle = arr[indexPath.row]
+        myVC.isJustCreate = false
 //        myVC.myTextField.text = arr[indexPath.row].modificationDate
         self.navigationController?.pushViewController(myVC, animated: true)
     }
@@ -87,4 +92,12 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+}
+
+extension NSDate {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM y HH:mm:ss"
+        return dateFormatter.string(from: self as Date)
+    }
 }
