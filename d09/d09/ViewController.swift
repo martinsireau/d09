@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func authButton(_ sender: Any) {
         if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Athentification is needed") { success, evaluateError in
+            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: " ") { success, evaluateError in
                 if success {
                     self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
                     print("Succexx")
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     func keyboardAuth(){
-        myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Athentification is needed") { success, evaluateError in
+        myContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: " ") { success, evaluateError in
             if success {
                 self.present((self.storyboard?.instantiateViewController(withIdentifier: "navVC"))!, animated: true, completion: nil)
                 print("Success")

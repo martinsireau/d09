@@ -13,6 +13,7 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     var arr = [Article]()
     @IBOutlet weak var myTableVC: UITableView!
+    @IBOutlet weak var myNvigationItam: UINavigationItem!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var articleManager : ArticleManager?
@@ -44,8 +45,14 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.myTitle.text = arr[indexPath.row].title
         cell.contentLabel.text = arr[indexPath.row].content
-        cell.creationLabel.text = String(describing: arr[indexPath.row].creationDate!)
-        cell.modificationLabel.text =  String(describing: arr[indexPath.row].modificationDate!)
+        
+        if let myCreationDate = arr[indexPath.row].creationDate {
+            cell.creationLabel.text = String(describing: myCreationDate)
+        }
+        
+        if let myModifDate = arr[indexPath.row].modificationDate {
+            cell.creationLabel.text = String(describing: myModifDate)
+        }
         
         if let myImageData = arr[indexPath.row].image{
             cell.myImageView.image = UIImage(data: myImageData as Data)
@@ -57,20 +64,25 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateArticleViewController") as! CreateArticleViewController
-//        print(arr[indexPath.row].title)
-//        if let title = arr[indexPath.row].title{
-//            myVC.theTitle = title
-//        }
-//        if let content = arr[indexPath.row].content{
-//            myVC.theContent = content
-//        }
-//        if let myImageData = arr[indexPath.row].image{
-//            myVC.theImage = UIImage(data: myImageData as Data)
-//        }
+
         myVC.theArticle = arr[indexPath.row]
 //        myVC.myTextField.text = arr[indexPath.row].modificationDate
-        
         self.navigationController?.pushViewController(myVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            articleManager?.removeArticle(article: arr[indexPath.row])
+            if let allArticles = articleManager?.getAllArticles(){
+                arr = allArticles
+            }
+            articleManager?.save()
+            myTableVC.reloadData()
+        }
     }
     
 }
