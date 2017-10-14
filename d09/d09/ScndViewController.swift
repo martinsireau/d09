@@ -45,25 +45,25 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func addArticle(_ sender: Any) {
         
-        if let article1 = articleManager?.newArticle(){
-            article1.title = "ljkdhglkjad"
-            article1.content = "Le Meilleur Kebab desdfalsjkdfkljasdf paname"
-            article1.creationDate = NSDate()
-            article1.modificationDate = NSDate()
-            article1.langage = "fr"
-        }
-        
-        articleManager?.save()
-        
-        if let article2 = articleManager?.newArticle(){
-            article2.title = "istanbul kebsadfasdfasdfab"
-            article2.content = "The worst kebab on earsadfasdfasdfasdfth"
-            article2.creationDate = NSDate()
-            article2.modificationDate = NSDate()
-            article2.langage = "en"
-        }
-        articleManager?.save()
-        arr = (articleManager?.getAllArticles())!
-        myTableVC.reloadData()
+//        if let article1 = articleManager?.newArticle(){
+//            article1.title = "ljkdhglkjad"
+//            article1.content = "Le Meilleur Kebab desdfalsjkdfkljasdf paname"
+//            article1.creationDate = NSDate()
+//            article1.modificationDate = NSDate()
+//            article1.langage = "fr"
+//        }
+//        
+//        articleManager?.save()
+//        
+//        if let article2 = articleManager?.newArticle(){
+//            article2.title = "istanbul kebsadfasdfasdfab"
+//            article2.content = "The worst kebab on earsadfasdfasdfasdfth"
+//            article2.creationDate = NSDate()
+//            article2.modificationDate = NSDate()
+//            article2.langage = "en"
+//        }
+//        articleManager?.save()
+//        arr = (articleManager?.getAllArticles())!
+//        myTableVC.reloadData()
     }
 }
