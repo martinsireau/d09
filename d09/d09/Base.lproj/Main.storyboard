@@ -133,7 +133,13 @@
                             <constraint firstItem="SyD-aN-jg2" firstAttribute="bottom" secondItem="rCY-b6-CMK" secondAttribute="top" id="yBJ-wH-Iem"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Articles" id="Rd9-Ch-ur4"/>
+                    <navigationItem key="navigationItem" title="My Articles" id="Rd9-Ch-ur4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sq3-Ev-kP6">
+                            <connections>
+                                <action selector="addArticle:" destination="vDN-wD-X5c" id="1PZ-Rm-wD1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTableVC" destination="SyD-aN-jg2" id="d81-WD-itg"/>
                     </connections>

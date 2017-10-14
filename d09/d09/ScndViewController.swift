@@ -11,18 +11,39 @@ import msireau2017
 
 class ScndViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-    var arr = ["lol", "lol", "lol"]
+    var arr = [Article]()
     @IBOutlet weak var myTableVC: UITableView!
     
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var articleManager : ArticleManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "My Articles"
-//        let articleManager = ArticleManager(managedObjectContext: self.context)
+        articleManager = ArticleManager(managedObjectContext: self.context)
 
-        //access to core data
+        if let article1 = articleManager?.newArticle(){
+            article1.title = "Kebab Full Moon"
+            article1.content = "Le Meilleur Kebab de paname"
+            article1.creationDate = NSDate()
+            article1.modificationDate = NSDate()
+            article1.langage = "fr"
+        }
+        
+        articleManager?.save()
+        
+        if let article2 = articleManager?.newArticle(){
+            article2.title = "istanbul kebab"
+            article2.content = "The worst kebab on earth"
+            article2.creationDate = NSDate()
+            article2.modificationDate = NSDate()
+            article2.langage = "en"
+        }
+        articleManager?.save()
+        
+        arr = (articleManager?.getAllArticles())!
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,10 +53,35 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ArticleTableViewCell = self.myTableVC.dequeueReusableCell(withIdentifier: "myCell") as! ArticleTableViewCell
         
-        cell.myTitle.text = arr[indexPath.row]
-        cell.contentLabel.text = arr[indexPath.row]
-        cell.creationLabel.text = arr[indexPath.row]
-        cell.modificationLabel.text = arr[indexPath.row]
+        cell.myTitle.text = arr[indexPath.row].title
+        cell.contentLabel.text = arr[indexPath.row].content
+//        cell.creationLabel.text = arr[indexPath.row].creationDate
+//        cell.modificationLabel.text = arr[indexPath.row].modificationDate
+
         return cell
+    }
+    
+    @IBAction func addArticle(_ sender: Any) {
+        
+        if let article1 = articleManager?.newArticle(){
+            article1.title = "ljkdhglkjad"
+            article1.content = "Le Meilleur Kebab desdfalsjkdfkljasdf paname"
+            article1.creationDate = NSDate()
+            article1.modificationDate = NSDate()
+            article1.langage = "fr"
+        }
+        
+        articleManager?.save()
+        
+        if let article2 = articleManager?.newArticle(){
+            article2.title = "istanbul kebsadfasdfasdfab"
+            article2.content = "The worst kebab on earsadfasdfasdfasdfth"
+            article2.creationDate = NSDate()
+            article2.modificationDate = NSDate()
+            article2.langage = "en"
+        }
+        articleManager?.save()
+        arr = (articleManager?.getAllArticles())!
+        myTableVC.reloadData()
     }
 }
