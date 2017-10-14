@@ -56,6 +56,11 @@ class CreateArticleViewController: UIViewController, UIImagePickerControllerDele
         article1?.modificationDate = NSDate()
         if let theImage = myImage {
             article1?.image = UIImagePNGRepresentation(theImage) as NSData?
+        } else {
+            myImage = UIImage(named: "ph")
+            if let theImage = myImage{
+                article1?.image = UIImagePNGRepresentation(theImage) as NSData?
+            }
         }
         article1?.langage = Locale.preferredLanguages[0]
         articleManager?.save()

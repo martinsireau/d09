@@ -19,7 +19,9 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
     var articleManager : ArticleManager?
 
     override func viewWillAppear(_ animated: Bool) {
-        arr = (articleManager?.getAllArticles())!
+        if let allArticles = articleManager?.getArticles(withLang: Locale.preferredLanguages[0]){
+            arr = allArticles
+        }
         myTableVC.reloadData()
     }
     
@@ -28,7 +30,7 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         articleManager = ArticleManager(managedObjectContext: self.context)
 
-        if let allArticles = articleManager?.getAllArticles(){
+        if let allArticles = articleManager?.getArticles(withLang: Locale.preferredLanguages[0]){
             arr = allArticles
         }
         myTableVC.rowHeight  = UITableViewAutomaticDimension
@@ -77,7 +79,7 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             articleManager?.removeArticle(article: arr[indexPath.row])
-            if let allArticles = articleManager?.getAllArticles(){
+            if let allArticles = articleManager?.getArticles(withLang: Locale.preferredLanguages[0]){
                 arr = allArticles
             }
             articleManager?.save()
