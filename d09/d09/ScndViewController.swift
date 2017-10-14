@@ -23,27 +23,9 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.title = "My Articles"
         articleManager = ArticleManager(managedObjectContext: self.context)
 
-        if let article1 = articleManager?.newArticle(){
-            article1.title = "Kebab Full Moon"
-            article1.content = "Le Meilleur Kebab de paname"
-            article1.creationDate = NSDate()
-            article1.modificationDate = NSDate()
-            article1.langage = "fr"
+        if let allArticles = articleManager?.getAllArticles(){
+            arr = allArticles
         }
-        
-        articleManager?.save()
-        
-        if let article2 = articleManager?.newArticle(){
-            article2.title = "istanbul kebab"
-            article2.content = "The worst kebab on earth"
-            article2.creationDate = NSDate()
-            article2.modificationDate = NSDate()
-            article2.langage = "en"
-        }
-        articleManager?.save()
-        
-        arr = (articleManager?.getAllArticles())!
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,8 +37,8 @@ class ScndViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.myTitle.text = arr[indexPath.row].title
         cell.contentLabel.text = arr[indexPath.row].content
-//        cell.creationLabel.text = arr[indexPath.row].creationDate
-//        cell.modificationLabel.text = arr[indexPath.row].modificationDate
+        cell.creationLabel.text = String(describing: arr[indexPath.row].creationDate!)
+        cell.modificationLabel.text =  String(describing: arr[indexPath.row].modificationDate!)
 
         return cell
     }
